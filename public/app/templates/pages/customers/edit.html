@@ -1,0 +1,143 @@
+<div class="row">
+	<div class="col-lg-12">
+		<form novalidate ng-submit="customer.save(customer.data)" class="form-horizontal">
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'NAME' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.name" class="form-control" ng-required="true">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'CONTACT_NAME' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.contact_name" class="form-control" ng-required="true">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'PHONE' | translate }} 1:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.phone1" class="form-control" ui-mask="(999) 99999-9999" ng-required="true">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'PHONE' | translate }} 2:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.phone2" class="form-control" ui-mask="(999) 99999-9999">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'E-MAIL' | translate }}:</label>
+				<div class="col-sm-10"> 
+					<input type="text" ng-model="customer.data.email" class="form-control" ng-required="true">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'NATURE' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.nature" class="form-control" ng-required="true">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'CNAE' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.cnae" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'CNPJ' | translate }} / {{ 'CPF' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.cnpj" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'INSC_EST' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.insc_est" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'STATUS_SINTEGRA' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.sintegra_status" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'ADDRESS' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.address1" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2"> </div>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.address2" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2"> </div>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.address3" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2"> </div>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.address4" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'COUNTRY' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.country" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'STATE' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.state" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'CITY' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.city" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'ZIP_CODE' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.zip_code" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'COUNTRY_CODE' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.country_code" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'ADDRESS_DELVER' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.adress_delivery" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'ADRESS_BILLING' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.address_billing" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">{{ 'PRICE_TABLE' | translate }}:</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="customer.data.price_table" class="form-control">
+				</div>	
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-success">{{ 'FORM_SAVE' | translate }}</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

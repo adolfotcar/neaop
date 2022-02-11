@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-lg-12">
+		<h3>{{ 'ROLE' | translate }}: <b>{{ role.permissions.name }}</b></h3>
+		<form ng-submit="role.addRolePermissions(form)" class="form-horizontal">
+			<div class="form-group">
+				<div class="col-sm-5">
+					<select ng-model="form.uri_id" ng-options="uri.id as uri.friendly | translate for uri in role.uris" class="form-control"></select>
+				</div>
+				<div class="col-sm-5">
+					<select ng-model="form.method" ng-options="method as method |translate for method in role.methods" class="form-control"></select>
+				</div>
+				<div class="col-sm-2">
+					<button type="submit" class="btn btn-success">{{ 'FORM_SAVE' | translate }}</button>
+				</div>
+			</div>
+		</form>
+		<table class="table">
+			<thead>
+				<tr>
+					<th width="50%">{{ 'MODULE' | translate }}</th>
+					<th width="30%">{{ 'METHOD' | translate }}</th>
+					<th width="20%">{{ 'ACTIONS' | translate }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="(key, permission) in role.permissions.permissions">
+					<td>{{ role.getUri(permission.uri_id) | translate}}</td>
+					<td>{{ permission.method | translate}}</td>
+					<td>
+						<button ng-click="role.removePermission(permission.uri_id, permission.method)" class="btn btn-danger"><i class="fa fa-trash-o"></i> {{ 'REMOVE' | translate }}</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

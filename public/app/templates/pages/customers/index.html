@@ -1,0 +1,40 @@
+<div class="row">
+	<div class="col-lg-12">
+		<a ng-href="/#/customer/" class="btn btn-primary"><i class="fa fa-plus"></i> {{ 'ADD_NEW' | translate }}</a>
+		<table class="table">
+			<thead>
+				<tr>
+					<th width="25%">{{ 'NAME' | translate }}</th>
+					<th width="25%">{{ 'CONTACT_NAME' | translate }}</th>
+					<th width="25%">{{ 'E-MAIL' | translate }}</th>
+					<th width="25%">{{ 'ACTIONS' | translate }}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="customer in customers.customers">
+					<td>{{ customer.name }}</td>
+					<td>{{ customer.contact_name }}</td>
+					<td>{{ customer.email }}</td>
+					<td>
+						<a ng-href="/#/customer/{{ customer.id }}" class="btn btn-default" 
+						ng-if="user.permissions.isAllowed('CUSTOMERS_TOTAL', 'Edit')">
+							<i class="fa fa-edit"></i> {{ 'EDIT' | translate }}
+						</a>
+						<button ng-click="customers.remove(customer.id)" class="btn btn-danger" 
+						ng-if="user.permissions.isAllowed('CUSTOMERS_TOTAL', 'Edit')">
+							<i class="fa fa-trash-o"></i> {{ 'REMOVE' | translate }}
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<nav>
+		  <ul class="pagination">
+		    <li><span aria-hidden="true" ng-click="customers.page=1; customers.load();"><i class="fa fa-fast-backward"></i></span></li>
+		    <li><span aria-hidden="true" ng-click="customers.page=customers.page-1; customers.load();"><i class="fa fa-play fa-flip-horizontal"></i></span></li>
+		    <li><span aria-hidden="true" ng-click="customers.page=customers.page+1; customers.load();"><i class="fa fa-play"></i></span></li>
+		    <li><span aria-hidden="true" ng-click="customers.page=customers.last_page; customers.load();"><i class="fa fa-fast-forward"></i></span></li>
+		  </ul>
+		</nav>
+	</div>
+</div>

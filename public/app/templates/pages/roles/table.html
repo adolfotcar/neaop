@@ -1,0 +1,31 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th width="30%">{{ 'NAME' | translate }}</th>
+			<th width="70%">{{ 'ACTIONS' | translate }}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="role in data">
+			<td>{{ role.name }}</td>
+			<td>
+				<a ng-href="{{ editUrl }}{{ role.id }}" class="btn btn-default" 
+				ng-if="isAllowed('Edit')">
+					<i class="fa fa-edit"></i> {{ 'EDIT' | translate }}
+				</a>
+				<a ng-href="/#/role/{{ role.id }}/permissions" class="btn btn-default" 
+				ng-if="isAllowed('Edit') || permissions.isAllowed('ROLES_PERMISSIONS', 'Edit')">
+					<i class="fa fa-unlock"></i> {{ 'MANAGE' | translate }} {{ 'PERMISSIONS' | translate }}
+				</a>
+				<a ng-href="/#/role/{{ role.id }}/users" class="btn btn-default" 
+				ng-if="isAllowed('Edit') || permissions.isAllowed('ROLES_USERS', 'Edit')">
+					<i class="fa fa-users"></i> {{ 'MANAGE' | translate }} {{ 'USERS' | translate }}
+				</a>
+				<button ng-click="remove(role.id)" class="btn btn-danger" 
+				ng-if="isAllowed('Edit')">
+					<i class="fa fa-trash-o"></i> {{ 'REMOVE' | translate }}
+				</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

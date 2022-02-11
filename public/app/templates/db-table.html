@@ -1,0 +1,28 @@
+<div class="col-lg-12">
+	<div class="col-lg-9">
+		<a ng-href="{{ editUrl }}" class="btn btn-primary" 
+		ng-if="isAllowed('POST')">
+			<i class="fa fa-plus"></i> {{ 'ADD_NEW' | translate }}
+		</a>
+	</div>
+	<form class="col-lg-3 input-group" ng-submit="search(query)">
+		<input type="text" class="form-control" ng-model="query">
+		<span class="input-group-addon">
+			<i class="fa fa-search"></i>
+		</span>
+	</form>
+	<div ng-include="tableUrl" ng-if="isAllowed('GET_LIST')"></div>
+	<nav ng-if="!searching">
+		 <ul class="pagination">
+		   <li><span aria-hidden="true" ng-click="paginate(first)"><i class="fa fa-fast-backward"></i></span></li>
+		   <li><span aria-hidden="true" ng-click="paginate(-1)"><i class="fa fa-play fa-flip-horizontal"></i></span></li>
+		   <li><span aria-hidden="true" ng-click="paginate(1)"><i class="fa fa-play"></i></span></li>
+		   <li><span aria-hidden="true" ng-click="paginate(last)"><i class="fa fa-fast-forward"></i></span></li>
+		 </ul>
+	</nav>
+	<nav ng-if="searching">
+		 <ul class="pagination">
+		   <li><span aria-hidden="true" ng-click="quitSearch()"><i class="fa fa-stop"> {{ 'QUIT_SEARCH' | translate }}</i></span></li>
+		 </ul>
+	</nav>
+</div>

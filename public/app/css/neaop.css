@@ -1,0 +1,141 @@
+form.panel{
+	margin-top: 1%;
+}
+
+footer {
+	border-top: 1px solid #777;
+	background-color: #e7e7e7;
+	color: #f8f8f8;
+}
+
+footer > .container {
+	padding: 20px 0px 20px 0px;
+}
+
+.custom-search-form{
+	width: 100%;
+}
+
+.form-horizontal {
+	width: 100%;
+	float: left;
+}
+
+a {
+	cursor: pointer;
+}
+
+button.navbar-toggle{
+	padding: 9px 10px;
+	margin: 8px 15px 8px 0px;
+}
+
+form.ng-submitted input.ng-invalid, form.ng-submitted input.ng-invalid:focus {
+	border: 1px solid #f00;
+}
+
+header.top{
+	background-color: #f8f8f8;
+	border-bottom: 1px solid #a0a0a0;
+}
+
+.pagination>li {
+	cursor: pointer;
+}
+
+.side-menu{
+	background-color: #f8f8f8;
+	border-right: 1px solid #a0a0a0;
+	height: auto;
+}
+
+.content{
+	padding-top: 30px;
+}
+
+.navbar-collapse{
+	padding: 0px;
+}
+
+.collapse, .collapse>li{
+	list-style: none;
+}
+
+.sub-nav{
+	margin-left: 10%;
+}
+
+.side-nav>li{
+	width: 100%;
+}
+
+.container{
+	padding-top: 8%;
+}
+
+@media(min-width: 768px){
+	.container{
+		padding-top: 0px;
+	}
+}
+
+@media(min-width: 992px){
+	.side-menu{
+		height: 100%;
+	}
+}
+
+.navbar-collapse.in{
+	overflow-y: inherit; 
+}
+
+.navbar-toggle {
+    font-size: 26px;
+    margin: 3px 0px 0px 20px;
+    padding: 2px 5px;
+    line-height: 26px;
+}
+
+.navbar-toggle:hover {
+    background-color: #373737;
+    color: #ccc;
+}
+
+.splash {
+	position:fixed; 
+	height:100%; 
+	width:100%; 
+	top:0; 
+	left:0; 
+	z-index: 9999; 
+	background-color: black; 
+	vertical-align: middle; 
+	text-align: center;
+}
+
+.navbar-default.sidebar>.sidebar-nav.navbar-collapse>.nav>li>a>span.fa.fa-plus,
+.navbar-default.sidebar>.sidebar-nav.navbar-collapse>.nav>li>ul>li>a>span.fa.fa-plus {
+	float: right;
+}
+
+.navbar-default.sidebar>.sidebar-nav.navbar-collapse>.nav>li>a>span.fa.fa-minus,
+.navbar-default.sidebar>.sidebar-nav.navbar-collapse>.nav>li>ul>li>a>span.fa.fa-minus {
+	float: right;
+}
+
+.odd{
+	background-color: #E9E9E9;
+}
+
+.circle-box{
+	border-radius: 50% 50% 50% 50%;
+	color: white;
+	background-color: #777;
+}
+
+.circle-box.circle-small {
+	height: 18px;
+	width: 18px;
+	text-align: center;
+	font-size: 10px;
+}

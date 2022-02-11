@@ -1,0 +1,22 @@
+<script type="text/ng-template" id="items_renderer.html">
+  <div ui-tree-handle ng-class-odd="'odd'" ng-class-even="'even'">
+    <a class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)">
+      <span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span>
+    </a>
+    {{child.data.name}}
+    <a ng-href="{{ '/#/category/'}}{{child.data.id}}" class='pull-right btn btn-xs btn-primary'><i class="fa fa-edit"></i></a>
+  </div>
+  <ol ui-tree-nodes="options" ng-model="child.children" ng-class="{hidden: collapsed}">
+    <li ng-repeat="child in child.children" ui-tree-node ng-include="'items_renderer.html'" data-collapsed="true"></li>
+  </ol>
+</script>
+
+    <a ng-href="/#/category" class="btn btn-primary">
+      <i class="fa fa-plus"></i> {{ 'ADD_NEW' | translate }}
+    </a><br/> <br/>
+
+<div ui-tree="options">
+  <ol ui-tree-nodes ng-model="categories.list" >
+    <li ng-repeat="child in categories.list" ui-tree-node ng-include="'items_renderer.html'"  data-collapsed="true"></li>
+  </ol>
+</div>

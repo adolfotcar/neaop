@@ -1,0 +1,62 @@
+<div class="modal" role="dialog" id="modal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">CATEGORIES</h4>
+			</div>
+			<div class="modal-body">
+				<script type="text/ng-template" id="items_renderer.html">
+				  <div ui-tree-handle ng-class-odd="'odd'" ng-class-even="'even'">
+				    <a class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)">
+				      <span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span>
+				    </a>
+				    {{child.data.name}}
+				    <button data-toggle='tooltip' title="{{ 'SELECT' | translate }}" class='pull-right btn btn-xs btn-default' ng-click="data.parent_name = child.data.name; data.parent_id = child.data.id;" data-dismiss="modal"><i class="fa fa-thumbs-o-up"></i></button>
+				  </div>
+				  <ol ui-tree-nodes="options" ng-model="child.children" ng-class="{hidden: collapsed}">
+				    <li ng-repeat="child in child.children" ui-tree-node ng-include="'items_renderer.html'" data-collapsed="true"></li>
+				  </ol>
+				</script>
+				<div ui-tree="options">
+				  <ol ui-tree-nodes ng-model="data.categories" >
+				    <li ng-repeat="child in data.categories" ui-tree-node ng-include="'items_renderer.html'"  data-collapsed="true"></li>
+				  </ol>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<form ng-submit="save(data)" class="form-horizontal">
+	<div class="form-group">
+		<label class="control-label col-sm-2">{{ 'NAME' | translate }}:</label>
+		<div class="col-sm-10">
+			<input type="text" ng-model="data.name" class="form-control">
+		</div>	
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">{{ 'PARENT' | translate }}:</label>
+		<div class="col-sm-10" style="padding-top: 7px;">
+			{{ data.parent_name }}
+			
+			<button type="button" class="btn btn-default" onclick="$('#modal').modal(); $('[data-toggle=tooltip]').tooltip();" data-toggle="tooltip" title="{{ 'PICK_PARENT' | translate }}">
+				<i class="fa fa-edit"> </i>
+			</button>
+			<button type="button" class="btn btn-warning" ng-click="data.parent_name = ''; data.parent_id = 0;" data-toggle="tooltip" title="{{ 'MAKE_ROOT' | translate }}">
+				<i class="fa fa-terminal"> </i>
+			</button>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-success">{{ 'FORM_SAVE' | translate }}</button>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('[data-toggle="tooltip"]').tooltip();
+	});
+</script>

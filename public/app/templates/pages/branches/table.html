@@ -1,0 +1,25 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th width="30%">{{ 'NAME' | translate }}</th>
+			<th width="30%">{{ 'TITLE' | translate }}</th>
+			<th width="40%">{{ 'ACTIONS' | translate }}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="branch in data">
+			<td>{{ branch.name }}</td>
+			<td>{{ branch.title }}</td>
+			<td>
+				<a ng-href="{{ editUrl }}{{ branch.id }}" class="btn btn-default" 
+				ng-if="isAllowed('Edit')">
+					<i class="fa fa-edit"></i> {{ 'EDIT' | translate }}
+				</a>
+				<button ng-click="remove(branch.id)" class="btn btn-danger" 
+				ng-if="isAllowed('Remove')">
+					<i class="fa fa-trash-o"></i> {{ 'REMOVE' | translate }}
+				</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

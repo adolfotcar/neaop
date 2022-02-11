@@ -1,0 +1,27 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th width="20%">{{ 'NAME' | translate }}</th>
+			<th width="25%">{{ 'SURNAME' | translate }}</th>
+			<th width="30%">{{ 'E-MAIL' | translate }}</th>
+			<th width="25%">{{ 'ACTIONS' | translate }}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="mng_user in data">
+			<td>{{ mng_user.name }}</td>
+			<td>{{ mng_user.surname }}</td>
+			<td>{{ mng_user.email }}</td>
+			<td>
+				<a ng-href="{{ editUrl }}{{ mng_user.id }}" class="btn btn-default" 
+				ng-if="isAllowed('Edit')">
+					<i class="fa fa-edit"></i> {{ 'EDIT' | translate }}
+				</a>
+				<button ng-click="remove(mng_user.id)" class="btn btn-danger" 
+				ng-if="isAllowed('Remove')">
+					<i class="fa fa-trash-o"></i> {{ 'REMOVE' | translate }}
+				</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,27 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th width="25%">{{ 'NAME' | translate }}</th>
+			<th width="25%">{{ 'CONTACT_NAME' | translate }}</th>
+			<th width="25%">{{ 'E-MAIL' | translate }}</th>
+			<th width="25%">{{ 'ACTIONS' | translate }}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="customer in data">
+			<td>{{ customer.name }}</td>
+			<td>{{ customer.contact_name }}</td>
+			<td>{{ customer.email }}</td>
+			<td>
+				<a ng-href="{{ editUrl }}{{ customer.id }}" class="btn btn-default" 
+				ng-if="isAllowed('PUT')">
+					<i class="fa fa-edit"></i> {{ 'EDIT' | translate }}
+				</a>
+				<button ng-click="remove(customer.id)" class="btn btn-danger" 
+				ng-if="isAllowed('DELETE')">
+					<i class="fa fa-trash-o"></i> {{ 'REMOVE' | translate }}
+				</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
